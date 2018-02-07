@@ -17,4 +17,10 @@ Route::get('/portfolio', 'PagesController@getPortfolio');
 Route::get('/resume', 'PagesController@getResume');
 Route::get('/contact', 'PagesController@getContact');
 
+Route::resource('pages', 'PagesController');
+Route::resources('posts', 'PostsController');
+
+
+
+Auth::routes();
 
