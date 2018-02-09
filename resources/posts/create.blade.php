@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', '| Add New Post')
+@section('title', '| Add New Page')
 
 @section('content')
 
@@ -12,18 +12,18 @@
 			<p class="mt-5">Please <a href="/login/">login</a> to add a new post.</p>
 			
 		@else
-
+			
 			<div class="blog-header">
-		        <h1 class="blog-title">Add New Post</h1>
+		        <h1 class="blog-title">Add New Page</h1>
 		    </div>
 
 			<div class="row">
 				<div class="push-md-2 col-md-8">
 					
-					<form action="{{ route('posts.store') }}" method="POST">
+					<form action="{{ route('pages.store') }}" method="POST">
 						{{ csrf_field() }}
 						<input type="hidden" name="author_ID" value="{{ Auth::id() }}" />
-						<input type="hidden" name="post_type" value="post" />
+						<input type="hidden" name="post_type" value="page" />
 						
 						<div class="form-group{{ $errors->has('post_title') ? ' has-error' : '' }}">
 							<label for="post_title">Title</label> <br/>
@@ -59,16 +59,8 @@
 						</div>
 						
 						<div class="form-group">
-							<label for="title">Category</label> <br/>
-							<select name="category_ID" id="category_ID">
-								<option value="1">1</option>
-								<option value="2">2</option>
-							</select>
-						</div>
-
-						<div class="form-group">
 							<input type="submit" class="btn btn-primary" value="Publish" />
-							<a class="btn btn-primary" href="{{ route('posts.index') }}">Cancel</a>
+							<a class="btn btn-primary" href="{{ route('pages.index') }}">Cancel</a>
 						</div>
 					</form>
 
